@@ -20,7 +20,7 @@ import { AppService } from './app.service';
           minVersion: 'TLSv1',
         },
         enableArithAbort: true,
-        //trustServerCertificate: true,
+        encrypt: false,
         tdsVersion: '7_1',
       },
     }),
