@@ -2,6 +2,13 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { SupervisorsModule } from './supervisors/supervisors.module';
+//import { Users } from './users/entities/user.entity';
+import { UsersModule } from './users/users.module';
+import { BccModule } from './bcc/bcc.module';
+import { Users } from './users/entities/user.entity';
+import { BCC } from './bcc/entities/bcc.entity';
+//import { BCC } from './bcc/entities/bcc.entity';
 
 @Module({
   imports: [
@@ -11,10 +18,10 @@ import { AppService } from './app.service';
       port: 1433,
       username: 'dairy',
       password: 'Dairy@123',
-      database: 'mcsas',
+      database: 'VDAIRY',
       synchronize: false,
       logging: false,
-      // entities: [__dirname + "/*"],
+      entities: [Users, BCC],
       options: {
         cryptoCredentialsDetails: {
           minVersion: 'TLSv1',
@@ -24,6 +31,9 @@ import { AppService } from './app.service';
         tdsVersion: '7_1',
       },
     }),
+    SupervisorsModule,
+    UsersModule,
+    BccModule,
   ],
   controllers: [AppController],
   providers: [AppService],
