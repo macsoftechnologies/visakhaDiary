@@ -10,6 +10,8 @@ import { Users } from './users/entities/user.entity';
 import { BCC } from './bcc/entities/bcc.entity';
 //import { BCC } from './bcc/entities/bcc.entity';
 import { ProducerModule } from './producer/producer.module';
+import { SharedService } from './shared/shared.service';
+import { Producers } from './producer/schema/producer.schema';
 
 @Module({
   imports: [
@@ -22,7 +24,7 @@ import { ProducerModule } from './producer/producer.module';
       database: 'VDAIRY',
       synchronize: false,
       logging: false,
-      entities: [Users, BCC],
+      entities: [Users, BCC, Producers],
       options: {
         cryptoCredentialsDetails: {
           minVersion: 'TLSv1',
@@ -38,6 +40,6 @@ import { ProducerModule } from './producer/producer.module';
     ProducerModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, SharedService],
 })
 export class AppModule {}

@@ -9,7 +9,7 @@ import {
 } from 'typeorm';
 
 @Entity({ name: 'PRODUCERS' })
-export class PRODUCERS extends BaseEntity {
+export class Producers extends BaseEntity {
   @PrimaryColumn()
   pno: number;
   @Column()
