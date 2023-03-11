@@ -9,6 +9,7 @@ import { BccModule } from './bcc/bcc.module';
 import { Users } from './users/entities/user.entity';
 import { BCC } from './bcc/entities/bcc.entity';
 //import { BCC } from './bcc/entities/bcc.entity';
+import { ProducerModule } from './producer/producer.module';
 
 @Module({
   imports: [
@@ -34,6 +35,7 @@ import { BCC } from './bcc/entities/bcc.entity';
     SupervisorsModule,
     UsersModule,
     BccModule,
+    ProducerModule,
   ],
   controllers: [AppController],
   providers: [AppService],

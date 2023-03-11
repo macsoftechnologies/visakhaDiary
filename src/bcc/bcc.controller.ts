@@ -11,7 +11,6 @@ export class BccController {
       console.log(req.body);
       const result = await this.bccService.getBccs(req.body);
       console.log('result', result);
-
       return result;
     } catch (error) {
       return {
