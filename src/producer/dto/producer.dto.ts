@@ -12,6 +12,8 @@ export class producerDto {
   @ApiProperty()
   occupation: string;
   @ApiProperty()
+  hq_code: string;
+  @ApiProperty()
   efee: string;
   @ApiProperty()
   shares: string;

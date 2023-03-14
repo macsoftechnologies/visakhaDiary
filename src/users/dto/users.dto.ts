@@ -4,8 +4,14 @@ export class userDto {
   userId: string;
 
   @ApiProperty()
-  name: string;
+  user_name: string;
 
   @ApiProperty()
   password: string;
+
+  @ApiProperty()
+  user_type: string;
+
+  @ApiProperty()
+  user_type_code: string;
 }

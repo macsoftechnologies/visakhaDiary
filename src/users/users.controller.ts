@@ -20,4 +20,20 @@ export class UsersController {
       };
     }
   }
+
+  @Post('/login')
+  async loginUser(@Request() req) {
+    try {
+      console.log(req.body);
+      const result = await this.usersService.userLogin(req.body);
+      console.log('result', result);
+
+      return result;
+    } catch (error) {
+      return {
+        statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+        message: error.message,
+      };
+    }
+  }
 }

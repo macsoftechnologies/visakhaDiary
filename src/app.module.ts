@@ -12,6 +12,7 @@ import { BCC } from './bcc/entities/bcc.entity';
 import { ProducerModule } from './producer/producer.module';
 import { SharedService } from './shared/shared.service';
 import { Producers } from './producer/schema/producer.schema';
+import { HeadquartersModule } from './headquarters/headquarters.module';
 
 @Module({
   imports: [
@@ -38,6 +39,7 @@ import { Producers } from './producer/schema/producer.schema';
     UsersModule,
     BccModule,
     ProducerModule,
+    HeadquartersModule,
   ],
   controllers: [AppController],
   providers: [AppService, SharedService],

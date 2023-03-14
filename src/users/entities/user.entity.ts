@@ -9,14 +9,20 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-@Entity({ name: 'Users' })
+@Entity({ name: 'Users_Master' })
 export class Users extends BaseEntity {
   @PrimaryColumn()
   userId: string;
 
   @Column()
-  name: string;
+  user_name: string;
 
   @Column()
   password: string;
+
+  @Column()
+  user_type: string;
+
+  @Column()
+  user_type_code: string;
 }
