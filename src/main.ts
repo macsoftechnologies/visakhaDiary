@@ -18,13 +18,13 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api/v1', app, document);
- 
+
   app.useGlobalPipes(new ValidationPipe());
 
-  app.setGlobalPrefix('/api/v1')
+  app.setGlobalPrefix('/api/v1');
   app.use(bodyParser.json({ limit: '100mb' }));
   app.use(bodyParser.urlencoded({ limit: '500mb', extended: true }));
   app.enableCors();
-  await app.listen(process.env.PORT || 3000);
+  await app.listen(process.env.PORT || 4000);
 }
 bootstrap();
