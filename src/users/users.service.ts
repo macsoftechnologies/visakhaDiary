@@ -58,4 +58,53 @@ export class UsersService {
       };
     }
   }
+
+  async userCategoryList(req: userDto) {
+    try {
+      if (req.user_type == 'admin') {
+        const data = await this.sharedService.executeQuery(
+          `SELECT * from Head_Quarters`,
+        );
+        if (data) {
+          return {
+            statusCode: HttpStatus.OK,
+            Data: data.recordset,
+            // Query: query,
+          };
+        }
+      } else if (req.user_type == 'hq') {
+        const data = await this.sharedService.executeQuery(
+          `SELECT * from BCC where hq_code=${req.user_type_code}`,
+        );
+        if (data) {
+          return {
+            statusCode: HttpStatus.OK,
+            Data: data.recordset,
+            // Query: query,
+          };
+        }
+      } else if (req.user_type == 'bcc') {
+        const data = await this.sharedService.executeQuery(
+          `SELECT * from Producers where bcc_code=${req.user_type_code}`,
+        );
+        if (data) {
+          return {
+            statusCode: HttpStatus.OK,
+            Data: data.recordset,
+            // Query: query,
+          };
+        }
+      } else {
+        return {
+          statusCode: HttpStatus.BAD_REQUEST,
+          msg: 'Invalid Request',
+        };
+      }
+    } catch (error) {
+      return {
+        statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+        Message: error,
+      };
+    }
+  }
 }

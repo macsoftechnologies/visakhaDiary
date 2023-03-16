@@ -36,4 +36,20 @@ export class UsersController {
       };
     }
   }
+
+  @Post('/getUserCategoryList')
+  async categoryList(@Request() req) {
+    try {
+      console.log(req.body);
+      const result = await this.usersService.userCategoryList(req.body);
+      console.log('result', result);
+
+      return result;
+    } catch (error) {
+      return {
+        statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+        message: error.message,
+      };
+    }
+  }
 }
