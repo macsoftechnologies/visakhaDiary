@@ -47,4 +47,32 @@ export class ProducerService {
       };
     }
   }
+
+
+
+
+  async getproducerlist(req: producerDto) {
+    try {
+      const data = await this.sharedService.executeQuery(
+        `SELECT * from producers where society_code=${req.society_code} AND bcc_code=${req.bcc_code} AND pno=${req.pno} `,
+      ); 
+      if (data) {
+        return {
+          statusCode: HttpStatus.OK,
+          Data: data.recordset,
+          // Query: query,
+        };
+      }
+      return {
+        statusCode: HttpStatus.BAD_REQUEST,
+        msg: 'Invalid Request',
+      };
+    } catch (error) {
+      return {
+        statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+        Message: error,
+      };
+    }
+  }
+
 }

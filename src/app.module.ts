@@ -13,6 +13,9 @@ import { ProducerModule } from './producer/producer.module';
 import { SharedService } from './shared/shared.service';
 import { Producers } from './producer/schema/producer.schema';
 import { HeadquartersModule } from './headquarters/headquarters.module';
+import { SocietiesModule } from './societies/societies.module';
+import { CattleinformationModule } from './cattleinformation/cattleinformation.module';
+import { RecoveriesentryModule } from './recoveriesentry/recoveriesentry.module';
 
 @Module({
   imports: [
@@ -40,6 +43,9 @@ import { HeadquartersModule } from './headquarters/headquarters.module';
     BccModule,
     ProducerModule,
     HeadquartersModule,
+    SocietiesModule,
+    CattleinformationModule,
+    RecoveriesentryModule,
   ],
   controllers: [AppController],
   providers: [AppService, SharedService],

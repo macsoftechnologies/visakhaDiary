@@ -26,4 +26,20 @@ export class ProducerController {
       };
     }
   }
+
+  @Post('/getProducerList')
+  async socitiesList(@Request() req) {
+    try {
+      console.log(req.body);
+      const result = await this.producerService.getproducerlist(req.body);
+      //console.log('result', result);
+
+      return result;
+    } catch (error) {
+      return {
+        statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+        message: error.message,
+      };
+    }
+  }
 }
