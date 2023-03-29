@@ -8,8 +8,7 @@ export class SocietiesService {
     constructor(private sharedService:SharedService){}
     
  
-
-    async getproducerlist(req: societiesDto) {
+     async getproducerlist(req: societiesDto) {
         try {
           const data = await this.sharedService.executeQuery(
             `SELECT * from producers where society_code=${req.society_code} AND bcc_code=${req.bcc_code}`,
@@ -31,6 +30,8 @@ export class SocietiesService {
             Message: error,
           };
         }
+
       }
     
+     
 }

@@ -7,13 +7,12 @@ export class RecoveriesentryService {
     constructor(private sharedService:SharedService){}
 
     
-
-
     async getproducerlist(req: recoveriesentryDto) {
         try {
           const data = await this.sharedService.executeQuery(
-            `SELECT * from producers where society_code=${req.society_code} AND bcc_code=${req.bcc_code} AND from_date=${req.from_date} `,
-          ); 
+            `SELECT * from  RECOVERIES_ENTRY_FN where society_code=${req.society_code} AND bcc_code=${req.bcc_code} AND from_date=${req.from_date} `,
+          );
+          console.log(data)               
           if (data) {
             return {
               statusCode: HttpStatus.OK,

@@ -6,7 +6,7 @@ export class CattleinformationController {
   constructor(private readonly cattleinformationService: CattleinformationService) {}
 
 
-  @Post('/getcattleInformation')
+  @Post('/getcattleInformationByPno')
   async cattleInformationList(@Request() req) {
     try {
       console.log(req.body);

@@ -21,13 +21,12 @@ export class BccController {
   // }
 
 
-  @Post('/getListSocities')
+  @Post('/getSocitiesbyBccCode')
   async socitiesList(@Request() req) {
     try {
       console.log(req.body);
       const result = await this.bccService.getSocities(req.body);
       console.log('result', result);
-
       return result;
     } catch (error) {
       return {

@@ -6,7 +6,7 @@ export class SocietiesController {
   constructor(private readonly societiesService: SocietiesService) {}
 
 
-@Post('/getProducerList')
+@Post('/getProducerByScodeBccCode')
   async socitiesList(@Request() req) {
     try {
       console.log(req.body);

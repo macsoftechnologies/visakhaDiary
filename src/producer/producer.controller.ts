@@ -27,7 +27,7 @@ export class ProducerController {
     }
   }
 
-  @Post('/getProducerList')
+  @Post('/getProducerByPno')
   async socitiesList(@Request() req) {
     try {
       console.log(req.body);
